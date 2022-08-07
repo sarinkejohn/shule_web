@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { createUser } = UserAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     try {
       await createUser(email, password);
-      navigate('/account')
+      navigate("/account");
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -22,37 +22,88 @@ const Signup = () => {
   };
 
   return (
-    <div className='max-w-[700px] mx-auto my-16 p-4'>
-      <div>
-        <h1 className='text-2xl font-bold py-2'>Sign up for a free account</h1>
-        <p className='py-2'>
-          Already have an account yet?{' '}
-          <Link to='/' className='underline'>
-            Sign in.
-          </Link>
-        </p>
+    <div>
+      <div className="flex flex-col  items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+        <div>
+          <h3 className="text-4xl font-bold text-purple-600">
+            Logo Regester for a Test account
+          </h3>
+        </div>
+        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+          <form onSubmit={handleSubmit} >
+
+          <div className="mb-2">
+                  <label
+                      for="email"
+                      className="block text-sm font-semibold text-gray-800"
+                  >
+                      Email
+                  </label>
+                  <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+              </div>
+               
+              <div className="mb-2">
+                  <label
+                      for="email"
+                      className="block text-sm font-semibold text-gray-800"
+                  >
+                      Password
+                  </label>
+                  <input
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="email"
+                      className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+              </div>
+
+ 
+
+            <div className="flex items-center mt-4">
+              <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-500 rounded-md hover:bg-purple-300 focus:outline-none focus:bg-purple-200">
+                Register
+              </button>
+            </div>
+          </form>
+          <div className="mt-4 text-grey-600">
+            Already have an account?{" "}
+            <span>
+              <p className="text-purple-600 hover:underline" href="#">
+                <Link to="/">Log in</Link>
+              </p>
+            </span>
+          </div>
+          <div className="flex items-center w-full my-4">
+            <hr className="w-full" />
+            <p className="px-3 ">OR</p>
+            <hr className="w-full" />
+          </div>
+          <div className="my-6 space-y-2">
+            <Link to="/">
+              <button
+                aria-label="Login with Google"
+                type="button"
+                className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
+                </svg>
+                <p>
+                  {" "}
+                  <Link to="/"> Login with Google </Link>
+                </p>
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Email Address</label>
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            className='border p-3'
-            type='email'
-          />
-        </div>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Password</label>
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            className='border p-3'
-            type='password'
-          />
-        </div>
-        <button className='border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white'>
-          Sign Up
-        </button>
-      </form>
     </div>
   );
 };

@@ -22,38 +22,63 @@ const Signin = () => {
   };
 
   return (
-    <div className='max-w-[700px] mx-auto my-16 p-4'>
-      <div>
-        <h1 className='text-2xl font-bold py-2'>Shule Web  </h1>
-        <p className='py-2'>
-          Don't have an account yet?{' '}
-          <Link to='/signup' className='underline'>
+  <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+      <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+          <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
+             Sign in
+          </h1>
+          <form  onSubmit={handleSubmit} className="mt-6">
+              <div className="mb-2">
+                  <label
+                      for="email"
+                      className="block text-sm font-semibold text-gray-800"
+                  >
+                      Email
+                  </label>
+                  <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+              </div>
+              <div className="mb-2">
+                  <label
+                      for="password"
+                      className="block text-sm font-semibold text-gray-800"
+                  >
+                      Password
+                  </label>
+                  <input onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  />
+              </div>
+              <span
+                  
+                  className="text-xs text-purple-600 hover:underline"
+              > 
+              <Link to='/signup' className='underline'>
+                  Forget Password?
+                  </Link>
+              </span>
+              <div className="mt-6">
+                  <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                      Login
+                  </button>
+              </div>
+          </form>
+
+          <p className="mt-8 text-xs font-light text-center text-gray-700">
+              {" "}
+              Don't have an account?{" "}
+                <Link to='/signup' className='underline'>
             Sign up.
-          </Link>
-        </p>
+            </Link>
+          </p>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Email Address</label>
-          <input onChange={(e) => setEmail(e.target.value)} className='border p-3' type='email' />
-        </div>
-        <div className='flex flex-col py-2'>
-          <label className='py-2 font-medium'>Password</label>
-          <input onChange={(e) => setPassword(e.target.value)} className='border p-3' type='password' />
-        </div>
-        <button className='border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white'>
-          Sign In
-        </button>
-        <div>
-        <p className='py-2'>
-          Forgot Password?{' '}
-          <Link to='/' className='underline'>
-            Reset..!
-          </Link>
-        </p>
-      </div>
-      </form>
-    </div>
+  </div>
+
+
   );
 };
 
