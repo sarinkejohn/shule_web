@@ -1,0 +1,79 @@
+nav{
+    display: flex;
+    height: 20vh;
+    padding: 20px 36px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1); 
+    background-color: rgb(16, 11, 11);
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+
+  }
+  
+ .onair > h2{
+   color: white;
+   
+ }
+
+
+ /* card style */
+
+ * {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1600px) {
+  .column {
+    width: 100% !important;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card__onair {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-bottom-style: double;
+  border-bottom-width: bold;
+  display: grid;
+}
+/* Style the counter cards */
+/* .card {
+  display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  height: 15vh;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-bottom-style: double;
+  border-bottom-width: bold;
+} */

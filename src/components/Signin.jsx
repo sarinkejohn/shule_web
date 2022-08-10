@@ -1,32 +1,41 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
+ 
+
+
 
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
-  const { signIn } = UserAuth();
+  const { signIn } = useAuth();
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('')
+    
     try {
+        setError('')
+        setLoading(true)
       await signIn(email, password)
-      navigate('/account')
+      navigate('/teacherpage')
     } catch (e) {
-      setError(e.message)
-      console.log(e.message)
+        setError("Failed to log in")
+      
     }
   };
 
   return (
-  <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+  <div className="relative flex flex-col justify-center  min-h-screen overflow-hidden">
+      <div className="w-full p-6 m-auto bg-white rounded-md border-2 shadow-md lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
              Sign in
           </h1>
+          {error && <p className="text-orange-800">{error}</p>}
           <form  onSubmit={handleSubmit} className="mt-6">
               <div className="mb-2">
                   <label
@@ -57,12 +66,12 @@ const Signin = () => {
                   
                   className="text-xs text-purple-600 hover:underline"
               > 
-              <Link to='/signup' className='underline'>
+              <Link to='/forgetpassword' className='underline'>
                   Forget Password?
                   </Link>
               </span>
               <div className="mt-6">
-                  <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                  <button  disabled={loading} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
                       Login
                   </button>
               </div>
@@ -71,7 +80,7 @@ const Signin = () => {
           <p className="mt-8 text-xs font-light text-center text-gray-700">
               {" "}
               Don't have an account?{" "}
-                <Link to='/signup' className='underline'>
+                <Link disabled={loading} to='/signup' className='underline'>
             Sign up.
             </Link>
           </p>
