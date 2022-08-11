@@ -9,6 +9,7 @@ import TeacherPage from './TeacherPage';
 import ForgotPassword from './components/ForgotPassword';
 import UpdateProfile from './components/UpdateProfile';
 import TeacherActivity from "./pages/TeacherActivity"
+import TeacherOnAir from "./pages/TeacherOnAir"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/profile' element={<UpdateProfile/>} />
           <Route path='/activity' element={  <TeacherActivity/> } />
           <Route path='/teacherpage' element={  <TeacherPage/> } />
+          <Route path='/onair' element={  <TeacherOnAir/> } />
           <Route  path='/account' element={ <Account/> }/>
         </Routes>
       </AuthContextProvider>
