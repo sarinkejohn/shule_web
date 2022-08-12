@@ -1,12 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import useFetch from 'react-fetch-hook'
+import { useNavigate,Link } from "react-router-dom";
 
 function TeacherActivity() {
   const url = 'https://randomuser.me/api/'
   const { data } = useFetch(url+'?results=2')
   const [contactList, setContactList] = useState()
   const [filterQuery, setFilterQuery] = useState()
+
+  const navigate = useNavigate()
+  
+  // const selectedView=()=>{
+  //   // navigate('/onairview',{state:{});
+  //     }
+  //     // navigate('/posts', {state: { test: 'test'}})
 
 
  //  https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCg_GB9WS6YKHilQZIJEC4kg&maxResults=2&order=date&key=AIzaSyA3zPwdG3oEguS56zMgTqQAU-HRmSbFknU
@@ -31,7 +39,7 @@ function TeacherActivity() {
       setContactList(filteredData)
     }
   }, [data, filterQuery])
-  
+  // console.log(contactList.index);
   return (
     <div className={"bg-gray-100"}>
       {/* <section>
@@ -76,7 +84,12 @@ function TeacherActivity() {
               <span className="font-medium">city: </span>{contact.location.city}
             </p>
           </figcaption>
-          
+
+          <Link to={`/onairview/${contactList.email}` }>
+           <button  className="text-semibold">View</button>    </Link>     
+
+
+
         </figure>
       ))}
       </section>
