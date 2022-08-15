@@ -1,14 +1,15 @@
 import React from 'react'
-import {useLocation} from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 function OnAirView() {
     const location = useLocation();
+    const { email } = useParams();
     const data = location.state;
-console.log(data);
+console.log(email);
   return (
     <div>
 
-            <div>viewssssssssss</div>
+            <div>Email Recaived { email } From here you can fetch user by email</div>
 
 
 
