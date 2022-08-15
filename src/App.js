@@ -25,7 +25,7 @@ function App() {
           <Route path='/activity' element={  <TeacherActivity/> } />
           <Route path='/teacherpage' element={  <TeacherPage/> } />
           <Route path='/onair' element={  <TeacherOnAir/> } />
-          <Route path='/onairview' element={  <OnAirView/> } />
+          <Route path='/onairview/:email' element={  <OnAirView/> } />
           <Route  path='/account' element={ <Account/> }/>
         </Routes>
       </AuthContextProvider>

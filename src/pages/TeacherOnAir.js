@@ -5,7 +5,7 @@ import { useNavigate,Link } from "react-router-dom";
 
 function TeacherActivity() {
   const url = 'https://randomuser.me/api/'
-  const { data } = useFetch(url+'?results=2')
+  const { data } = useFetch(url+'?results=20')
   const [contactList, setContactList] = useState()
   const [filterQuery, setFilterQuery] = useState()
 
@@ -85,7 +85,7 @@ function TeacherActivity() {
             </p>
           </figcaption>
 
-          <Link to={`/onairview/${contactList.email}` }>
+          <Link to={`/onairview/${contact.email}` }>
            <button  className="text-semibold">View</button>    </Link>     
 
 
