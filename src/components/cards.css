@@ -1,0 +1,76 @@
+
+
+
+  
+  /* Float four cards--columns side by side */
+  .cards--column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in cards--columns */
+  .card--row {margin: 0 -3px;}
+  
+  /* Clear floats after the cards--columns */
+  .card--row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card--card {
+    box-shadow: 0 4px 8px 0 rgba(231, 117, 117, 0.2); 
+    /* this adds the "card" effect */
+    padding: 16px;
+    border-radius: 10px;
+    text-align: justify;
+    background-color: #f1f1f1;
+    overflow: hidden;
+  }
+  .card--card2 {
+    box-shadow: 0 4px 8px 0 rgba(231, 117, 117, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #0d0d0d;
+    overflow: hidden;
+  }
+
+  .card--card2--text ,.card--card2--header {
+    margin-top: 0;
+    Color: white;
+  }
+
+  
+  
+  /* Responsive cards--columns - one cards--column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .cards--column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+ .card--card .btn {
+    float: right;
+    overflow: hidden;
+    background-color: #01030f;
+    color: rgb(248, 245, 245);
+    font-size: 15px;
+    padding: 5px 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+  }
+ .card--card .btn:hover {
+    background-color: rgb(102, 102, 100);
+    color: white;
+  }
+
+  .card--card > h2 {
+    padding-left: 10px;
+  }
