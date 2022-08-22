@@ -1,0 +1,14 @@
+.footer{
+  margin-top: 5px;
+  height: 10vh;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+.footer--text {
+  color: blue;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
